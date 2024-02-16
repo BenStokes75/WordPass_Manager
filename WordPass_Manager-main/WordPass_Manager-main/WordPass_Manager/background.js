@@ -36,4 +36,9 @@ function saveCredentials(website, username, password) {
       console.log('Credentials removed for', website);
     });
   }
-  
+  // Background script to handle extension actions
+chrome.runtime.onMessage.addListener(function(message, _sender, _sendResponse) {
+  if (message.action === 'openPasswordsPage') {
+    chrome.tabs.create({ url: 'passwords.html' });
+  }
+});

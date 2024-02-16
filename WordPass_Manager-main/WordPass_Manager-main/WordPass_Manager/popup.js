@@ -52,4 +52,8 @@ function addPassword() {
     // Set the generated password in the password input field
     document.getElementById('password').value = password;
   }
-  
+  // Function to handle opening passwords page
+function openPasswordsPage() {
+  // Send message to background script to open passwords page
+  chrome.runtime.sendMessage({ action: 'openPasswordsPage' });
+}
